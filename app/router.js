@@ -7,6 +7,13 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('toplevel', function() {
+    this.route('dynamic', { path: ':super_slug' }, function() {
+      this.route('secondlevel', function() {
+        this.route('dynamic2', { path: ':duper_slug' });
+      });
+    });
+  });
 });
 
 export default Router;
